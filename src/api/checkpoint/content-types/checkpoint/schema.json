@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "checkpoints",
+  "info": {
+    "singularName": "checkpoint",
+    "pluralName": "checkpoints",
+    "displayName": "checkpoint"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "chapter": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::chapter.chapter",
+      "inversedBy": "checkpoint"
+    }
+  }
+}

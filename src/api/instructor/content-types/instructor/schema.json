@@ -1,0 +1,104 @@
+{
+  "kind": "collectionType",
+  "collectionName": "instructors",
+  "info": {
+    "singularName": "instructor",
+    "pluralName": "instructors",
+    "displayName": "instructor",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstname": {
+      "type": "string",
+      "required": true,
+      "minLength": 2
+    },
+    "lastname": {
+      "type": "string",
+      "required": true,
+      "minLength": 2
+    },
+    "phone": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 12,
+      "maxLength": 12
+    },
+    "password": {
+      "type": "password",
+      "required": true,
+      "minLength": 8
+    },
+    "email": {
+      "type": "email",
+      "unique": true,
+      "required": true,
+      "minLength": 10
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "dateOfBirthay": {
+      "type": "date"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "job_seeker",
+        "professional",
+        "student",
+        "primary_and_secondary_education"
+      ],
+      "required": true,
+      "default": "student"
+    },
+    "typeOfStudy": {
+      "type": "enumeration",
+      "enum": [
+        "master",
+        "bachelor",
+        "university_undergraduate",
+        "bac",
+        "high_school",
+        "secondary_school",
+        "primary_school",
+        "engineering",
+        "PhD"
+      ],
+      "default": "bachelor",
+      "required": true
+    },
+    "numberOfYearOfExperience": {
+      "type": "integer",
+      "max": 2,
+      "min": 1
+    },
+    "address": {
+      "type": "string",
+      "unique": false,
+      "required": false
+    },
+    "industry": {
+      "type": "string",
+      "required": false,
+      "maxLength": 20,
+      "minLength": 4
+    },
+    "tracks": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::track.track",
+      "mappedBy": "instructors"
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "students",
+  "info": {
+    "singularName": "student",
+    "pluralName": "students",
+    "displayName": "student",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstname": {
+      "type": "string",
+      "required": true,
+      "maxLength": 30,
+      "minLength": 2
+    },
+    "lastname": {
+      "type": "string",
+      "maxLength": 30,
+      "minLength": 2
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "email": {
+      "type": "email",
+      "unique": true,
+      "required": true,
+      "maxLength": 100,
+      "minLength": 20
+    },
+    "password": {
+      "type": "password",
+      "required": true,
+      "maxLength": 60,
+      "minLength": 8
+    },
+    "phone": {
+      "type": "string",
+      "unique": true,
+      "required": true,
+      "minLength": 12,
+      "maxLength": 12
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "dateOfBirthay": {
+      "type": "date"
+    },
+    "gendre": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female"
+      ],
+      "required": true
+    },
+    "tracks": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::track.track",
+      "mappedBy": "students"
+    }
+  }
+}
