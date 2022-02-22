@@ -1,0 +1,142 @@
+{
+  "kind": "collectionType",
+  "collectionName": "up_users",
+  "info": {
+    "name": "user",
+    "description": "",
+    "singularName": "user",
+    "pluralName": "users",
+    "displayName": "User"
+  },
+  "options": {
+    "draftAndPublish": false,
+    "timestamps": true
+  },
+  "attributes": {
+    "username": {
+      "type": "string",
+      "minLength": 3,
+      "unique": true,
+      "configurable": false,
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "minLength": 6,
+      "configurable": false,
+      "required": true
+    },
+    "provider": {
+      "type": "string",
+      "configurable": false
+    },
+    "password": {
+      "type": "password",
+      "minLength": 6,
+      "configurable": false,
+      "private": true
+    },
+    "resetPasswordToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true
+    },
+    "confirmationToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true
+    },
+    "confirmed": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "blocked": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "role": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.role",
+      "inversedBy": "users",
+      "configurable": false
+    },
+    "phone": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 12,
+      "minLength": 12
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "dayOfBirth": {
+      "type": "date"
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female"
+      ],
+      "required": true
+    },
+    "tracks": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::track.track",
+      "mappedBy": "users"
+    },
+    "firstname": {
+      "type": "string",
+      "required": true,
+      "unique": false,
+      "maxLength": 20,
+      "minLength": 2
+    },
+    "lastname": {
+      "type": "string",
+      "required": true,
+      "maxLength": 20,
+      "minLength": 2
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "job_seeker",
+        "professional",
+        "student",
+        "primary_and_secondary_education"
+      ]
+    },
+    "typeOfStudy": {
+      "type": "enumeration",
+      "enum": [
+        "master",
+        "bachelor",
+        "university_undergraduate",
+        "bac",
+        "high_school",
+        "secondary_school",
+        "primary_school",
+        "engineering",
+        "PhD"
+      ]
+    },
+    "yearsOfExperience": {
+      "type": "integer"
+    }
+  }
+}

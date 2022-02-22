@@ -43,22 +43,16 @@
       "target": "api::category.category",
       "inversedBy": "tracks"
     },
-    "students": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::student.student",
-      "inversedBy": "tracks"
-    },
-    "instructors": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::instructor.instructor",
-      "inversedBy": "tracks"
-    },
     "chapters": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::chapter.chapter"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "tracks"
     }
   }
 }
