@@ -22,13 +22,12 @@
     "description": {
       "type": "text",
       "required": true,
-      "maxLength": 300,
       "minLength": 5
     },
     "thumbnail": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images"
       ]
@@ -53,6 +52,11 @@
       "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
       "inversedBy": "tracks"
+    },
+    "thumbnailColor": {
+      "type": "string",
+      "required": true,
+      "unique": false
     }
   }
 }
