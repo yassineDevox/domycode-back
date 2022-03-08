@@ -137,6 +137,16 @@
     },
     "yearsOfExperience": {
       "type": "integer"
+    },
+    "roleName": {
+      "type": "enumeration",
+      "enum": [
+        "INSTRUCTOR",
+        "STUDENT",
+        "ADMIN"
+      ],
+      "default": "STUDENT",
+      "required": true
     }
   }
 }

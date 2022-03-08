@@ -4,7 +4,8 @@
   "info": {
     "singularName": "checkpoint",
     "pluralName": "checkpoints",
-    "displayName": "checkpoint"
+    "displayName": "checkpoint",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,18 +13,31 @@
   "pluginOptions": {},
   "attributes": {
     "content": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "chapter": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::chapter.chapter",
       "inversedBy": "checkpoint"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "NOT_YET_STARTED",
+        "OPENED",
+        "CLOSED",
+        "INPROGRESS",
+        "FAILED",
+        "RETRY"
+      ],
+      "default": "NOT_YET_STARTED",
+      "required": true
     }
   }
 }
