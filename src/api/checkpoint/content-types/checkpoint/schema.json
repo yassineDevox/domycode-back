@@ -14,10 +14,11 @@
   "attributes": {
     "content": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "allowedTypes": [
-        "images"
+        "images",
+        "files"
       ]
     },
     "chapter": {
