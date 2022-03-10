@@ -20,12 +20,17 @@
       "maxLength": 30
     },
     "content": {
-      "allowedTypes": [
-        "files"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": false,
+      "allowedTypes": [
+        "files",
+        "images"
+      ]
+    },
+    "youtubeVideoURL": {
+      "type": "string",
+      "unique": true
     }
   }
 }
